@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 import br.gov.sp.fatec.projetoabiv.entity.Usuario;
 import br.gov.sp.fatec.projetoabiv.service.SegurancaService;
 
+import br.gov.sp.fatec.projetolabiv.entity.Usuario;
+import br.gov.sp.fatec.projetolabiv.service.SegurancaService;
+
 @RestController
 @CrossOrigin
 @RequestMapping(value = "/usuario")
@@ -23,17 +26,18 @@ public class UsuarioController {
     private SegurancaService segurancaService;
 
     @GetMapping
-    public List<Usuario> todoUsuarios() {
-        return segurancaService.ListarTodosUsuarios();
+    public List<Usuario> todosUsuarios() {
+        return segurancaService.listarTodosUsuarios();
     }
 
     @GetMapping(value = "/{id}")
-    public Usuario buscarPeloId(@PathVariable("id")long id){
-        return segurancaService.BuscarUsuarioPorId(id);
+    public Usuario buscarPeloId(@PathVariable("id") Long id) {
+        return segurancaService.buscarUsuarioPorId(id);
     }
 
     @PostMapping
-    public Usuario novUsuario(@RequestBody Usuario usuario){
+    public Usuario novoUsuario(@RequestBody Usuario usuario) {
         return segurancaService.novoUsuario(usuario);
     }
+    
 }

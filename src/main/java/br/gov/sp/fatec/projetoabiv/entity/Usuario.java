@@ -22,8 +22,19 @@ public class Usuario {
     @Column(name = "usr_senha")
     private String senha;
 
+    @Column(name = "user_autorizacao")
+    private String autorizacao;
+
     public long getId() {
         return id;
+    }
+
+    public String getAutorizacao() {
+        return autorizacao;
+    }
+
+    public void setAutorizacao(String autorizacao) {
+        this.autorizacao = autorizacao;
     }
 
     public void setId(long id) {

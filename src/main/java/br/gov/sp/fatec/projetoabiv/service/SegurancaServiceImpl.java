@@ -22,7 +22,8 @@ public class SegurancaServiceImpl implements SegurancaService{
     @Override
     public Usuario novoUsuario(Usuario usuario) {
         if(usuario.getNome() == null || usuario.getNome().trim().isEmpty() ||
-            usuario.getSenha() == null || usuario.getSenha().trim().isEmpty()){
+            usuario.getSenha() == null || usuario.getSenha().trim().isEmpty() ||
+            usuario.getAutorizacao() == null || usuario.getAutorizacao().trim().isEmpty()){
           throw new IllegalArgumentException("Nome ou senha em branco");
         }
         return usuarioRepo.save(usuario);
